@@ -16,9 +16,10 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.method == "localStorage") {
         sendResponse({data: Object.entries(localStorage)});
     }
-    if (request.method == "sessionStorage") {
-        sendResponse({data: Object.entries(sessionStorage)});
-    }
+    if (request.method === 'getSessionStorage') {
+        const sessionStorageData = Object.entries(window.sessionStorage);
+        sendResponse({ data: sessionStorageData });
+      }
     else {
         sendResponse({data: null});
     }

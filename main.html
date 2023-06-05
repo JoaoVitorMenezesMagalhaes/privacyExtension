@@ -7,14 +7,49 @@
   <title>My Extension</title>
   <style>
     /* Estilos CSS aqui */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center; /* Centralizar o primeiro título */
+      color: #ff6600; /* Cor do primeiro título */
+      margin-top: 40px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #3366cc; /* Cor do subtítulo */
+    }
+
+    #number-cookies,
+    #number-local-storage,
+    #number-session-storage,
+    #number-third-party-cookies {
+      font-weight: bold;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 
 <body>
+  <h1 style="color: #ff6600;">Privacy Report</h1> <!-- Título "Privacy Report" com cor personalizada -->
+
   <h1>Cookies</h1>
 
   <div id="cookies-div">
-    <h2 id="header-title-cookies"></h2>
+    <h2 id="header-title-cookies">Cookies</h2> <!-- Subtítulo "Cookies" -->
     <p id="number-cookies"></p>
     <ul id="cookie-list"></ul>
   </div>
@@ -22,7 +57,7 @@
   <h1>Local Storage</h1>
 
   <div id="local-storage-div">
-    <h2 id="header-title-local-storage"></h2>
+    <h2 id="header-title-local-storage">Local Storage</h2> <!-- Subtítulo "Local Storage" -->
     <p id="number-local-storage"></p>
     <ul id="local-storage-list"></ul>
   </div>
@@ -30,7 +65,7 @@
   <h1>Session Storage</h1>
 
   <div id="session-storage-div">
-    <h2 id="header-title-session-storage"></h2>
+    <h2 id="header-title-session-storage">Session Storage</h2> <!-- Subtítulo "Session Storage" -->
     <p id="number-session-storage"></p>
     <ul id="session-storage-list"></ul>
   </div>
@@ -38,7 +73,7 @@
   <h1>Third Party Cookies</h1>
 
   <div id="third-party-cookies-div">
-    <h2 id="header-title-third-party-cookies"></h2>
+    <h2 id="header-title-third-party-cookies">Third Party Cookies</h2> <!-- Subtítulo "Third Party Cookies" -->
     <p id="number-third-party-cookies"></p>
     <ul id="third-party-cookies-list"></ul>
   </div>
