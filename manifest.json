@@ -6,6 +6,7 @@
   "icons": {
     "48": "icon.png"
   },
+  "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net/; object-src 'self'",
   "permissions": [
     "webRequest",
     "webRequestBlocking",
@@ -25,4 +26,6 @@
       "js": ["main.js"]
     }
   ]
+  
+
 }

@@ -179,8 +179,57 @@ const getLocalStorage = async (tabs) => {
     }
   }
   
+  const getFingerprint = async (tabs) => {
+    let tab = tabs.pop();
+    let url = getWebsiteName(tab.url);
+  
+    // Cria um elemento <script> para carregar o ClientJS
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/clientjs';
+    script.async = true;
+  
+    // Define a função callback que será executada após o carregamento do ClientJS
+    script.onload = () => {
+      // Cria uma instância do ClientJS
+      const client = new ClientJS();
+  
+      // Obtém o fingerprint
+      const fingerprint = client.getFingerprint();
+  
+      // Exibe o fingerprint no HTML
+      var fingerprintList = document.getElementById('fingerprint-list');
+      var fingerprintDiv = document.getElementById("fingerprint-div");
+      var fingerprintHeader = document.getElementById("header-title-fingerprint");
+  
+      var fingerprintNum = document.getElementById('number-fingerprint');
+      var p = document.createElement("p");
+      var fingerprintNumText = document.createTextNode("Fingerprint: " + fingerprint);
+      p.appendChild(fingerprintNumText);
+      fingerprintNum.appendChild(p);
+  
+      var fingerprintText = document.createTextNode("Searching for fingerprint from " + url);
+      fingerprintHeader.appendChild(fingerprintText);
+  
+      if (!fingerprint) {
+        var noFingerprint = document.createElement("p");
+        var noFingerprintText = document.createTextNode("No fingerprint found");
+        noFingerprint.appendChild(noFingerprintText);
+        fingerprintDiv.appendChild(noFingerprint);
+      } else {
+        var fingerprintItem = document.createElement("li");
+        var fingerprintText = document.createTextNode("Fingerprint: " + fingerprint);
+        fingerprintItem.appendChild(fingerprintText);
+        fingerprintList.appendChild(fingerprintItem);
+      }
+    };
+  
+    // Adiciona o elemento <script> ao documento
+    document.head.appendChild(script);
+  };
+  
 
 getTab().then(getCookies);
 getTab().then(getLocalStorage);
 getTab().then(getSessionStorage);
 getTab().then(getThirdPartyCookies);
+getTab().then(getFingerprint);
